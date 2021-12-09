@@ -134,7 +134,7 @@ def clean_text_data(text):
 
 class model1_News:
     def __init__(self):
-        self.model = pickle.load(open("decisionTreeModel.pkl",'rb'))
+        self.model = pickle.load(open("MachineLearning/decisionTreeModel.pkl",'rb'))
     
     def preditWithText(self, text):
         return int(self.model.predict(prepare_test(text).drop(columns=['text']))[0])
@@ -147,7 +147,7 @@ class model1_News:
 
 class model1_tweets:
     def __init__(self):
-        self.model = pickle.load(open("twitterTFModel.pkl",'rb'))
+        self.model = pickle.load(open("MachineLearning/twitterTFModel.pkl",'rb'))
         self.key = realorfake = {"True":1,"False":0}
         
     
