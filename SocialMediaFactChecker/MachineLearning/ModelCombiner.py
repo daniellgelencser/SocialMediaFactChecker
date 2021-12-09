@@ -62,6 +62,7 @@ import seaborn
 import nltk
 import gensim
 import pickle
+import joblib
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
@@ -70,7 +71,6 @@ from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.tokenize import word_tokenize, sent_tokenize
 from sklearn.pipeline import Pipeline
-
 
 
 def prepare_test(text):
@@ -152,7 +152,7 @@ class model1_tweets:
         
     
     def preditWithText(self, text):
-        return self.model.predict([text])[0]
+        return self.model.preditWithText([text])[0]
 
     def return_str(self, text):
         if self.preditWithText(text) == 0:
