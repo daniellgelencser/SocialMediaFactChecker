@@ -1,77 +1,11 @@
-# %%
 import pickle
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.pipeline import Pipeline
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.tree import DecisionTreeClassifier
 import pandas as pd
 import numpy as np
-
-
-
-# %%
-import numpy as np
-import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
 sns.set_style('darkgrid')
 
-import nltk
-from sklearn.preprocessing import LabelBinarizer
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import word_tokenize,sent_tokenize
 from bs4 import BeautifulSoup
-import re,string,unicodedata
-from sklearn.feature_extraction.text import TfidfTransformer
-
-from keras.preprocessing import text,sequence
-from nltk.tokenize.toktok import ToktokTokenizer
-from sklearn.metrics import classification_report,confusion_matrix,accuracy_score
-from sklearn.model_selection import train_test_split
-from string import punctuation
-from nltk import pos_tag
-from nltk.util import ngrams
-from nltk.corpus import wordnet
-import keras
-from keras.models import Sequential
-from keras.layers import LSTM,Dense,Dropout,Embedding
-from keras.callbacks import ReduceLROnPlateau
-import tensorflow as tf
-import os
-import numpy as np
-import pandas as pd
-import string
-
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.pipeline import Pipeline
-import pickle
-
-import os
-import json
-import re
-import string
-import warnings
-import numpy
-import pandas
-import matplotlib.pyplot as pyplot
-import seaborn
-import nltk
-import gensim
-import pickle
-
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from nltk.stem import PorterStemmer
-from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk.tokenize import word_tokenize, sent_tokenize
-from sklearn.pipeline import Pipeline
-
-
+import re,string
 
 def prepare_test(text):
     data_small = pd.DataFrame(np.array([text]),columns=['text'])
@@ -79,9 +13,7 @@ def prepare_test(text):
     special_characters = '!?@#$%^&*()-+_=,<>/'
 
     data_small['text_character_cnt'] = data_small['text'].str.len()
-    # if(data['text_character_cnt'] > 0):
     data_small['text_word_cnt'] = data_small['text'].str.split().str.len()
-    # data['text_character_per_word'] = data['text_character_cnt'] / data['text_word_cnt']
 
     data_small['text_special_cnt'] = data_small['text'].apply(lambda x: len([x for x in x.split() if any(char in special_characters for char in x)]))
 
@@ -105,13 +37,6 @@ def remove_square_brackets(text):
 
 def remove_URL(text):
     return re.sub(r'http\S+','',text)
-
-# def remove_stopwords(text):
-#     final_text=[]
-#     for i in text.split():
-#         if i.strip().lower() not in stop_words:
-#             final_text.append(i.strip())
-#     return " ".join(final_text)
 
 def remove_HashOrAT(text):
     return re.sub('@|#','',text)
@@ -197,8 +122,3 @@ class joinmodel:
             return model2_result
         else: 
             return False
-
-
-
-
-

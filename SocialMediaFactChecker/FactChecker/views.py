@@ -11,7 +11,13 @@ def index(request):
     if request.method == 'POST':
 
         model = ModelCombiner.joinmodel()
-        result = model.getTrueFalse(request.POST, verbose=True)
-        context['fact'] = result
+        result = model.getTrueFalse(request.POST['fact'], verbose=True)
+
+        context['text'] = request.POST['fact'];
+
+        if result['modelTweets_1'] != result['modelNews_2']:
+            context['fact'] = 'Maybe'
+        else:
+            context['fact'] = result['combinedResult']
 
     return HttpResponse(template.render(context, request))
