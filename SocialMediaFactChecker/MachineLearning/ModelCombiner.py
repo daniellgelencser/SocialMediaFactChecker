@@ -1,3 +1,12 @@
+################################################################################################################################
+# File combined 2 models 
+# model1: decision tree model , not included in final results, decisionTreeModel.pkl
+# model1 was not included in final results since we did nto feed in full tweents was not effective with judging punctionation
+# model2: navie_bayes classifer, twitterTFModel.pkl this name is misleading as it was trained on news article data
+# model combiner original displaed false if models did not agree. 
+# To avoid type2 error want to return False if models deagreed
+#################################################################################################################################
+
 import pickle
 import pandas as pd
 import numpy as np
