@@ -1,3 +1,9 @@
+########################################
+# Can be used to extract tweets based on the sample dataset.
+# After requesting around 7000 entries (70 requests, 100 tweets per request) twitter denies service for each thread, could not find a work around.
+# For this reason data from this script could not be used to train hte models.
+########################################
+
 import sys, csv, datetime, threading, queue, time
 from pytwitter import Api
 from pytwitter.error import PyTwitterError
