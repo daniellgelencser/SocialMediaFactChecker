@@ -6,6 +6,7 @@ sns.set_style('darkgrid')
 
 from bs4 import BeautifulSoup
 import re,string
+import pickle
 
 def prepare_test(text):
     data_small = pd.DataFrame(np.array([text]),columns=['text'])
@@ -77,7 +78,7 @@ class model1_tweets:
         
     
     def preditWithText(self, text):
-        return self.model.predict([text])[0]
+        return self.model.preditWithText([text])[0]
 
     def return_str(self, text):
         if self.preditWithText(text) == 0:
