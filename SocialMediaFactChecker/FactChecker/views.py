@@ -13,11 +13,15 @@ def index(request):
         model = ModelCombiner.joinmodel()
         result = model.getTrueFalse(request.POST['fact'], verbose=True)
 
-        context['text'] = request.POST['fact'];
+        context['text'] = request.POST['fact']
 
-        if result['modelTweets_1'] != result['modelNews_2']:
-            context['fact'] = 'Maybe'
-        else:
-            context['fact'] = result['combinedResult']
+        context['fact'] = result['combinedResult']
+
+        # if result['modelTweets_1'] != result['modelNews_2']:
+        #     context['fact'] = 'Maybe'
+        # else:
+        #     context['fact'] = result['combinedResult']
+
+        context['result'] = result
 
     return HttpResponse(template.render(context, request))

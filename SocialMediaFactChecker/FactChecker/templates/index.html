@@ -39,12 +39,16 @@
         </form>
       </section>
       <section class="body-font rounded-full justify-center flex">
-        <div class="lg:w-1/6 md:w-1/2 bg-gradient-to-r from-red-400 to-green-400 rounded-lg p-6 justify-center shadow-lg flex">
+        <div class="lg:w-1/6 md:w-1/2 bg-gradient-to-r 
+        {% if fact %}
+          from-green-600 to-green-400 
+        {% else %}
+          from-red-600 to-red-400 
+        {% endif %}
+        rounded-lg p-6 justify-center shadow-lg flex">
           <h1 class="text-white">
             Score: 
-            {% if fact %}
               {{ fact }}
-            {% endif %}
           </h1>
         </div>
       </section> 
