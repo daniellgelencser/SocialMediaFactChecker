@@ -78,7 +78,7 @@ class model1_tweets:
         
     
     def preditWithText(self, text):
-        return self.model.preditWithText([text])[0]
+        return self.model.predict([text])[0]
 
     def return_str(self, text):
         if self.preditWithText(text) == 0:
